@@ -1,4 +1,5 @@
 <h2>{{title}}</h2>
 <p>{{ result && result.message }}</p>
+<p *ngIf="result">{{ result.id }}</p>
 
 <router-outlet></router-outlet>
