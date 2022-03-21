@@ -13,14 +13,14 @@ export class AppComponent implements OnInit {
   title = 'ng-spring-security';
   result!: any;
 
-  private authUrl = env.url_server + '/authentication';
+  private urlDashboard = env.url_server + '/dashboard';
 
   constructor(
     private http: HttpClient
   ) {}
 
   ngOnInit(): void {
-    this.http.get(this.authUrl).subscribe(data => {
+    this.http.get(this.urlDashboard).subscribe(data => {
         this.result = data;
     })
   }
