@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
 
 import { environment as env} from '../environments/environment'
+import { AuthService } from './services/auth.service';
 
 @Component({
   selector: 'app-root',
@@ -13,15 +13,13 @@ export class AppComponent implements OnInit {
   title = 'ng-spring-security';
   result!: any;
 
-  private urlDashboard = env.url_server + '/dashboard';
-
   constructor(
-    private http: HttpClient
+    private auth: AuthService
   ) {}
 
   ngOnInit(): void {
-    this.http.get(this.urlDashboard).subscribe(data => {
-        this.result = data;
+    this.auth.login("user", "pwd").subscribe(data => {
+      console.log(data)
     })
   }
 }
