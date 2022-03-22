@@ -1,6 +1,5 @@
 package fr.vocaltech.spring.fullstack1.controllers;
 
-import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.HashMap;
