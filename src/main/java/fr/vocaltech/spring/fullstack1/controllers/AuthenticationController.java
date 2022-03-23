@@ -6,15 +6,10 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.UUID;
 
-//
-// TODO: Remove @CrossOrigin
-//
-
-@CrossOrigin(origins = "http://localhost:4200")
 @RestController
 @RequestMapping("/dashboard")
 public class AuthenticationController {
-  @GetMapping
+  @GetMapping("/")
   public Map<String, String> authentication() {
     Map<String, String> map = new HashMap<>();
     map.put("id", UUID.randomUUID().toString());
