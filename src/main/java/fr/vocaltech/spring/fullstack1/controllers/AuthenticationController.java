@@ -9,7 +9,7 @@ import java.util.UUID;
 @RestController
 @RequestMapping("/dashboard")
 public class AuthenticationController {
-  @GetMapping("/")
+  @GetMapping()
   public Map<String, String> authentication() {
     Map<String, String> map = new HashMap<>();
     map.put("id", UUID.randomUUID().toString());
