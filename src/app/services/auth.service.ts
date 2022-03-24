@@ -18,8 +18,10 @@ export class AuthService {
 
   login = (username: string, password: string): Observable<Object> => {
     const base64Encoded = btoa(`${username}:${password}`)
-    const headers = new HttpHeaders({ Authorization: 'Basic ' + base64Encoded })
+    const headers = new HttpHeaders({ 
+      'Authorization': 'Basic ' + base64Encoded 
+    })
 
-    return this.http.get(this.urlDashboard, { headers })
+    return this.http.get(this.urlDashboard, { headers } )
   }
 }
