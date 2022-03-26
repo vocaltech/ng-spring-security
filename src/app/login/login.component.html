@@ -1,1 +1,36 @@
-<p>login works!</p>
+<form (ngSubmit)="onLoginSubmit()" #loginform="ngForm">
+    <div class="container">
+        <div>
+            <span>Login</span>
+        </div>
+
+        <div>
+            <input type="text" name="username" placeholder="Enter username" ngModel required #username="ngModel" />
+        </div>
+
+        <div *ngIf="username.invalid && username.touched">
+            <div *ngIf="username.errors?.['required']">
+                Name is required
+            </div>
+        </div>
+
+        <div>
+            <input type="password" name="password" placeholder="Enter password" ngModel required #password="ngModel" />
+        </div>
+
+        <div *ngIf="password.invalid && password.touched">
+            <div *ngIf="password.errors?.['required']">
+                Password is required
+            </div>
+        </div>
+
+        <div *ngIf="!isLoading; else loadingButton">
+            <button type="submit" name="btnlogin" [disabled]="isLoading">LOGIN</button>
+        </div>
+        <ng-template #loadingButton>
+            <button type="submit" name="btnlogin" [disabled]="isLoading">loading...</button>
+        </ng-template>
+
+    </div>
+</form>
+
