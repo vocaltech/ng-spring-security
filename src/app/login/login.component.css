@@ -1,0 +1,51 @@
+.container {
+    width: 20%;
+    height: 260px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    border: 1px solid rgb(63, 81, 181);
+    border-radius: 20px;
+}
+
+div > span {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+div > input {
+    width: 200px;
+    padding: 8px;
+}
+
+div > button {
+    width: 220px;
+    height: 32px;
+    color: white;
+    background-color: rgb(63, 81, 181);
+}
+
+div > button:hover {
+    background-color: orange;
+    color: black;
+}
+
+div > button:disabled {
+    background-color: #ccc;
+    pointer-events: none; /* disable hover */    
+}
+
+div .alert {
+    align-self: flex-start;
+    padding-left: 20px;
+    justify-content: start;
+    color: red;
+    font-weight: bold;
+
+}
+
+
+
+
