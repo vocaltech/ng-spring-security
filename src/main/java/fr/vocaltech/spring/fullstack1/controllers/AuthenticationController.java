@@ -1,28 +1,27 @@
 package fr.vocaltech.spring.fullstack1.controllers;
 
-import org.springframework.http.HttpRequest;
+import fr.vocaltech.spring.fullstack1.models.ERole;
+import fr.vocaltech.spring.fullstack1.models.Role;
+import fr.vocaltech.spring.fullstack1.models.User;
 import org.springframework.web.bind.annotation.*;
-
-import javax.servlet.http.HttpServletRequest;
+import java.security.Principal;
 import java.util.*;
-import java.util.stream.Collectors;
-import java.util.stream.Stream;
 
 @RestController
 @RequestMapping("/dashboard")
 public class AuthenticationController {
   @GetMapping()
-  public Map<String, String> authentication(HttpServletRequest request) {
-    Stream<String> stream = Stream.of(request.getHeader("Authorization").split("Basic")[1].trim());
-    List list = stream
-      .map(Base64.getDecoder()::decode)
-        .collect(Collectors.toList());
-    System.out.println(list);
-
+  public Map<String, String> authentication(Principal principal) {
     Map<String, String> map = new HashMap<>();
     map.put("id", UUID.randomUUID().toString());
     map.put("message", "Welcome in your dashboard !");
 
+    Set<Role> roles = new HashSet<>();
+    roles.add(new Role(ERole.ROLE_ADMIN));
+    roles.add(new Role(ERole.ROLE_USER));
+
+    User user = new User(principal.getName(), "hidden", roles);
+    map.put("profile", user.toString());
 
     return map;
   }
