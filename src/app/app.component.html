@@ -1,5 +1,17 @@
+<nav>
+    <span>Welcome ...</span>
+
+    <div *ngIf="isLoggedIn; else loggedFalse">
+        <a routerLink="/logout">Logout</a>
+    </div>
+    
+    <ng-template #loggedFalse>
+        <a routerLink="/login">Login</a>
+    </ng-template>
+    
+    <a routerLink="/dashboard">Dashboard</a>
+</nav>
+
 <h2>{{title}}</h2>
-<p>{{ result && result.message }}</p>
-<p *ngIf="result">{{ result.id }}</p>
 
 <router-outlet></router-outlet>
