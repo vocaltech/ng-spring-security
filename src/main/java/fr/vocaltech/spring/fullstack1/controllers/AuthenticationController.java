@@ -11,7 +11,10 @@ import java.util.*;
 @RequestMapping("/dashboard")
 public class AuthenticationController {
   @GetMapping()
-  public Map<String, String> authentication(Principal principal) {
+  public Map<String, String> showDashboard(Principal principal) {
+
+    System.out.println("principal: " + principal);
+
     Map<String, String> map = new HashMap<>();
     map.put("id", UUID.randomUUID().toString());
     map.put("message", "Welcome in your dashboard !");
