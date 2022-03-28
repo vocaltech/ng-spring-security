@@ -30,7 +30,7 @@ public class AuthenticationApplicationTest {
     restTemplate = new TestRestTemplate("user", "wrong_pass");
     ResponseEntity<String> res = restTemplate.getForEntity(URL_BASE, String.class);
 
-    System.out.println("status code val: " + res.getStatusCodeValue()); // must return 401 !!!
+    System.out.println("status code val: " + res.getStatusCodeValue()); // TODO: must return 401 !!!
     System.out.println(res.getBody());
 
   }
