@@ -3,16 +3,18 @@ package fr.vocaltech.spring.fullstack1.controllers;
 import fr.vocaltech.spring.fullstack1.models.ERole;
 import fr.vocaltech.spring.fullstack1.models.Role;
 import fr.vocaltech.spring.fullstack1.models.User;
+import org.springframework.security.core.AuthenticationException;
 import org.springframework.web.bind.annotation.*;
+
+import javax.servlet.http.HttpServletResponse;
 import java.security.Principal;
 import java.util.*;
 
 @RestController
-@RequestMapping("/dashboard")
+@RequestMapping("/auth")
 public class AuthenticationController {
   @GetMapping()
-  public Map<String, String> showDashboard(Principal principal) {
-
+  public Map<String, String> auth(Principal principal) {
     System.out.println("principal: " + principal);
 
     Map<String, String> map = new HashMap<>();
