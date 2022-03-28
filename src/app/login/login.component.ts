@@ -22,7 +22,9 @@ export class LoginComponent implements OnInit {
     private auth: AuthService
   ) { }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+
+  }
 
   onLoginSubmit = async () => {
     const _username = this.loginForm.value.username;
@@ -34,7 +36,7 @@ export class LoginComponent implements OnInit {
     this.isLoading = true
 
     // simulate a delay when sending data to server
-    await this.delay(2000);
+    await this.delay(500);
 
     this.isLoading = false
 
@@ -43,16 +45,20 @@ export class LoginComponent implements OnInit {
     // -------------------------
     this.auth.login(_username, _password).subscribe(
       data => {
-        console.log(data)
-        this.router.navigate(['dashboard'])
-      }),
-
-      (errors: any) => {
-        console.log(`Invalid credentials (username/password) : ${errors}`)
+          console.log(data)
+          this.router.navigate(['dashboard'])
       },
+      error => {
+        const errorUrl = error.url as string
+        if (errorUrl.endsWith('/login') && error.ok === false) {
+          console.log('Invalid credentials (username/password)...')
+        }
 
+        // TODO: clean the text fields after submit
+
+      },
       () => {}
-  }
+    )}
 
   delay = (delayMs: number): Promise<void> => {
     return new Promise((resolve, reject) => {
