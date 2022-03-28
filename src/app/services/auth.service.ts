@@ -1,6 +1,7 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Observable, throwError } from 'rxjs';
+import { catchError } from 'rxjs/operators'
 
 import { environment as env} from '../../environments/environment'
 
@@ -9,7 +10,7 @@ import { environment as env} from '../../environments/environment'
 })
 
 export class AuthService {
-  private urlLogin = env.url_server + '/login';
+  private urlLogin = env.url_server + '/auth';
   private urlDashboard = env.url_server + '/dashboard';
 
   constructor(
@@ -22,6 +23,11 @@ export class AuthService {
       'Authorization': 'Basic ' + base64Encoded 
     })
 
-    return this.http.get(this.urlDashboard, { headers } )
+    return this.http.get(this.urlLogin, { headers } )
+      .pipe(
+        catchError(err => {
+          return throwError(err)
+        })
+      )
   }
 }
