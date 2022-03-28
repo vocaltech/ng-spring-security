@@ -12,7 +12,6 @@ import org.springframework.web.cors.CorsConfiguration;
 import org.springframework.web.cors.CorsConfigurationSource;
 import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 
-import javax.servlet.http.HttpServletResponse;
 import java.util.Arrays;
 
 @Configuration
@@ -31,7 +30,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
       .authenticated()
       .and()
       .formLogin()
-        .failureHandler(authenticationFailureHandler()) //TODO: doesnt work with Postman
+        .failureHandler(authenticationFailureHandler()) // TODO: doesnt work with Postman
         .and()
         .httpBasic(Customizer.withDefaults());
   }
