@@ -1,5 +1,5 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
-import { NgForm } from '@angular/forms';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { NgControl, NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
 
 import { AuthService } from '../services/auth.service';
@@ -12,6 +12,8 @@ import { AuthService } from '../services/auth.service';
 
 export class LoginComponent implements OnInit {
   isLoading = false
+  errorMessage = ''
+  errors = false
 
   // This will give us access to the form
   @ViewChild("loginform", { static: false }) 
@@ -52,10 +54,10 @@ export class LoginComponent implements OnInit {
         const errorUrl = error.url as string
         if (errorUrl.endsWith('/login') && error.ok === false) {
           console.log('Invalid credentials (username/password)...')
+          this.errors = true
+          this.errorMessage = 'Invalid credentials (username/password)'
+          this.loginForm.resetForm('')
         }
-
-        // TODO: clean the text fields after submit
-
       },
       () => {}
     )}
