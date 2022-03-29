@@ -23,3 +23,9 @@ nav span {
     font-weight: bold;
     font-size: 17px;
 }
+
+div {
+    display: flex;
+    justify-content: center;
+    margin-top: 5%;
+}
