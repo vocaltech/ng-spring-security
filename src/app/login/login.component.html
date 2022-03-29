@@ -5,7 +5,11 @@
         </div>
 
         <div>
-            <input type="text" name="username" placeholder="Enter username" ngModel required #username="ngModel" />
+            <span *ngIf="errors" class="error">{{errorMessage}}</span>
+        </div>
+
+        <div>
+            <input type="text" name="username" placeholder="Enter username" ngModel required #username="ngModel" [ngClass]="{'error': errors}" />
         </div>
 
         <div *ngIf="username.invalid && username.touched">
@@ -15,7 +19,7 @@
         </div>
 
         <div>
-            <input type="password" name="password" placeholder="Enter password" ngModel required #password="ngModel" />
+            <input type="password" name="password" placeholder="Enter password" ngModel required #password="ngModel" [ngClass]="{'error': errors}" />
         </div>
 
         <div *ngIf="password.invalid && password.touched">
