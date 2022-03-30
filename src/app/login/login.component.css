@@ -1,6 +1,6 @@
 .container {
     width: 100%;
-    height: 50vh; /* 260px */
+    height: 60vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -23,7 +23,7 @@ div > span.error {
 }
 
 div > input {
-    width: 200px;
+    width: 300px;
     padding: 8px;
 }
 
@@ -32,7 +32,7 @@ div > input.error {
 }
 
 div > button {
-    width: 220px;
+    width: 320px;
     height: 32px;
     color: white;
     background-color: rgb(63, 81, 181);
@@ -50,7 +50,7 @@ div > button:disabled {
 
 div .alert {
     align-self: flex-start;
-    padding-left: 20px;
+    padding-left: 12px;
     justify-content: start;
     color: red;
     font-weight: bold;
