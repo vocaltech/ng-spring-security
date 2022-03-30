@@ -12,7 +12,7 @@
             <input type="text" name="username" placeholder="Enter username" ngModel required #username="ngModel" [ngClass]="{'error': errors}" />
         </div>
 
-        <div *ngIf="username.invalid && username.touched">
+        <div *ngIf="username.invalid && username.touched" class="alert">
             <div *ngIf="username.errors?.['required']">
                 Name is required
             </div>
@@ -22,7 +22,7 @@
             <input type="password" name="password" placeholder="Enter password" ngModel required #password="ngModel" [ngClass]="{'error': errors}" />
         </div>
 
-        <div *ngIf="password.invalid && password.touched">
+        <div *ngIf="password.invalid && password.touched" class="alert">
             <div *ngIf="password.errors?.['required']">
                 Password is required
             </div>
