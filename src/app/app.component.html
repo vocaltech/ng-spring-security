@@ -1,17 +1,19 @@
-<nav>
-    <span>Welcome ...</span>
+<div class="container">
+    <nav>
+        <span>Welcome ...</span>
 
-    <div *ngIf="isLoggedIn; else loggedFalse">
-        <a routerLink="/logout">Logout</a>
-    </div>
-    
-    <ng-template #loggedFalse>
-        <a routerLink="/login">Login</a>
-    </ng-template>
-    
-    <a routerLink="/dashboard">Dashboard</a>
-</nav>
+        <div *ngIf="isLoggedIn; else loggedFalse">
+            <a routerLink="/logout">Logout</a>
+        </div>
+        
+        <ng-template #loggedFalse>
+            <a routerLink="/login">Login</a>
+        </ng-template>
+        
+        <a routerLink="/dashboard">Dashboard</a>
+    </nav>
+</div>
 
-<div>
+<div class="container">
     <router-outlet></router-outlet>
 </div>
