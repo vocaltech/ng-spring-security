@@ -24,7 +24,7 @@ nav span {
     font-size: 17px;
 }
 
-div {
+.container {
     display: flex;
     justify-content: center;
     margin-top: 5%;
