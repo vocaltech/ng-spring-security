@@ -25,6 +25,10 @@ nav span {
 }
 
 .container {
+    width: 100%;
+}
+
+.router_content {
     display: flex;
     justify-content: center;
     margin-top: 5%;
