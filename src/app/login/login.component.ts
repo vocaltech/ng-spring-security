@@ -11,6 +11,11 @@ import { AuthService } from '../services/auth.service';
 })
 
 export class LoginComponent implements OnInit {
+  // auth props
+  isLoggedIn = false;
+  username = '';
+
+  // ui props
   isLoading = false
   errorMessage = ''
   errors = false
@@ -48,6 +53,11 @@ export class LoginComponent implements OnInit {
     this.auth.login(_username, _password).subscribe(
       data => {
           console.log(data)
+          
+          // update auth service
+          this.auth.setLoggedIn(true)
+
+          // redirection
           this.router.navigate(['dashboard'])
       },
       error => {
