@@ -1,1 +1,12 @@
-<p>dashboard works!</p>
+<div>
+    <table>
+        <tr>
+            <td>Username:</td>
+            <td>{{ profile.username }}</td>
+        </tr>
+        <tr *ngFor="let role of profile.roles">
+            <td>role: </td>
+            <td>{{ role.name }}</td>
+        </tr>
+    </table>
+</div>
