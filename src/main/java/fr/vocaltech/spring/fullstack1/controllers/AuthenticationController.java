@@ -1,14 +1,13 @@
 package fr.vocaltech.spring.fullstack1.controllers;
 
+import org.springframework.web.bind.annotation.*;
+
+import java.security.Principal;
+import java.util.*;
+
 import fr.vocaltech.spring.fullstack1.models.ERole;
 import fr.vocaltech.spring.fullstack1.models.Role;
 import fr.vocaltech.spring.fullstack1.models.User;
-import org.springframework.security.core.AuthenticationException;
-import org.springframework.web.bind.annotation.*;
-
-import javax.servlet.http.HttpServletResponse;
-import java.security.Principal;
-import java.util.*;
 
 @RestController
 @RequestMapping("/auth")
