@@ -51,11 +51,14 @@ export class LoginComponent implements OnInit {
     // --- post data to server ---
     // -------------------------
     this.auth.login(_username, _password).subscribe(
-      data => {
+      (data: any) => {
           console.log(data)
           
           // update auth service
           this.auth.setLoggedIn(true)
+          this.auth.setUsername(_username)
+          this.auth.setProfile(data.profile)
+          this.auth.notifyLoginEvent()
 
           // redirection
           this.router.navigate(['dashboard'])
