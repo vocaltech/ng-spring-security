@@ -1,6 +1,6 @@
 <div class="container">
     <nav>
-        <span>Welcome ...</span>
+        <span>Welcome {{ username }}</span>
 
         <div *ngIf="isLoggedIn; else loggedFalse">
             <a routerLink="/logout">Logout</a>
