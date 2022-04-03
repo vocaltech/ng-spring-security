@@ -31,6 +31,6 @@ public class User {
 
   @Override
   public String toString() {
-    return "{ username: '" + username + "', password: '" + password + "', roles: " + roles + " }";
+    return "{\"username\": \"" + username + "\", \"password\": \"" + password + "\", \"roles\": " + roles + "}";
   }
 }
